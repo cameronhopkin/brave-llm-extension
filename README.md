@@ -16,10 +16,6 @@ The extension opens a popup where the user types text and receives a response fr
 
 This is a single-purpose proof-of-concept, not a maintained tool. Modern equivalents (browser AI sidebars, MCP-based clients, IDE-integrated agents) cover the same use case better.
 
-## Original setup
-
-The original setup instructions live in the [first commit's README](https://github.com/cameronhopkin/brave-llm-extension/blob/main/README.md). At a minimum it required an OpenAI API key in a `.env` file, Python 3.6+ with Flask, Flask-CORS, and the OpenAI Python library, and loading the unpacked extension via `brave://extensions` developer mode.
-
 ## License
 
 MIT License, original license preserved. See [LICENSE](LICENSE).
