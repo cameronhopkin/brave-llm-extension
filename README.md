@@ -1,73 +1,25 @@
-# ChatGPT Browser Extension
+# brave-llm-extension
 
-A browser extension for using the ChatGPT API, built for the Brave Browser. This extension allows you to interact with the ChatGPT API by entering text in the popup and receiving generated responses.
+A Brave browser extension that integrates ChatGPT via a Flask backend. Built in April 2023 as an early LLM browser integration experiment.
 
-## Getting Started
+## Why this exists in 2026
 
-These instructions will help you set up the ChatGPT browser extension and Flask server on your local machine.
+This repo predates the current generation of LLM tooling. It is preserved as an honest record of where I was experimenting with browser-integrated LLM workflows before MCP, Anthropic skills, browser-native AI APIs, and broader agentic frameworks existed.
 
-### Prerequisites
+If you are looking for current AI security work, see:
+- [`isc2-2026-agentic-ai-defense`](https://github.com/cameronhopkin/isc2-2026-agentic-ai-defense)
+- [`isc2-2026-ai-code-review-workshop`](https://github.com/cameronhopkin/isc2-2026-ai-code-review-workshop)
 
-- Brave Browser
-- Python 3.6 or higher (if not using Docker)
-- Flask and Flask-CORS libraries (if not using Docker)
-- OpenAI Python library (if not using Docker)
-- Docker (optional)
+## Original description
 
-### Installation
+The extension opens a popup where the user types text and receives a response from the OpenAI ChatGPT API. A small Flask server (in `server/`) holds the API key, proxies requests to OpenAI, and returns the model output to the extension UI (in `extension/`). Docker support is included for the server.
 
-1. **Clone the repository:**
+This is a single-purpose proof-of-concept, not a maintained tool. Modern equivalents (browser AI sidebars, MCP-based clients, IDE-integrated agents) cover the same use case better.
 
-git clone https://github.com/cameronhopkin/ChatGPT_Example
-cd chatgpt-extension
+## Original setup
 
-
-2. **Set up a virtual environment and install dependencies (non-Docker method), or use Docker:**
-
-**Non-Docker method:**
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-
-
-**Docker method:**
-docker build -t chatgpt-extension .
-
-
-3. **Add your ChatGPT API key to the .env file:**
-
-OPENAI_API_KEY=your_api_key_here
-
-Obtain a key here https://platform.openai.com/account/api-keys
-
-
-4. **Run the Flask server:**
-
-**Non-Docker method:**
-python app.py
-
-
-**Docker method:**
-docker run -p 5001:5000 --env-file .env chatgpt-extension
-
-
-5. **Load the extension in Brave Browser:**
-
-- Open Brave Browser
-- Navigate to `brave://extensions`
-- Enable "Developer mode" in the top right corner
-- Click "Load unpacked" and select the `chatgpt-extension` directory
-
-Now, the ChatGPT browser extension should be active and ready to use.
-
-## Usage
-
-Click on the extension icon in the browser toolbar, enter your input text in the provided textarea, and click "Generate" to receive a response from the ChatGPT API. The generated text will be displayed in the "Output" textarea.
-
-## Contributing
-
-Feel free to submit issues or pull requests for improvements or bug fixes.
+The original setup instructions live in the [first commit's README](https://github.com/cameronhopkin/brave-llm-extension/blob/main/README.md). At a minimum it required an OpenAI API key in a `.env` file, Python 3.6+ with Flask, Flask-CORS, and the OpenAI Python library, and loading the unpacked extension via `brave://extensions` developer mode.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+MIT License, original license preserved. See [LICENSE](LICENSE).
